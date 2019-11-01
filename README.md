@@ -1,2 +1,2 @@
 # Linux-Dev-Issu-Helper
-Wiki for Linux and popular usings
+Go To Wiki please
