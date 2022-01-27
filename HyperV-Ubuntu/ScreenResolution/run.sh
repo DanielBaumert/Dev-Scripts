@@ -24,12 +24,12 @@ do
     if [[ "${line}" =~ ^GRUB_CMDLINE_LINUX_DEFAULT=\"([^\"]*)\" ]]; then
         cmdline="${BASH_REMATCH[1]}"
         if !([[ "${cmdline}" =~ ^.*hyperv_fb:1920×1080.*$ ]]); then
-            file="${file}GRUB_CMDLINE_LINUX_DEFAULT=\"${BASH_REMATCH[1]} hyperv_fb:1920×1080\"\n"
+            file="${file}GRUB_CMDLINE_LINUX_DEFAULT=\"${BASH_REMATCH[1]} hyperv_fb:1920×1080\"\r\n"
         else
-            file="${file}${line}\n"
+            file="${file}${line}\r\n"
         fi
     else 
-        file="${file}${line}\n"
+        file="${file}${line}\r\n"
     fi
 done < "${GRUP_PATH}"
 
