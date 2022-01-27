@@ -14,7 +14,7 @@ if !(is_user_root); then
 fi
 
 GRUP_PATH="/etc/default/grub"
-RES="video=hyperv_fb:1920×1080"
+RES="video=hyperv_fb:1920x1080"
 NEWLINE="
 "
 file=""
