@@ -13,7 +13,7 @@ if !(is_user_root); then
     exit 1
 fi
 
-GRUP_PATH="/ect/default/grub"
+GRUP_PATH="/etc/default/grub"
 
 sudo cp $GRUP_PATH "${GRUP_PATH}.bak"
 
