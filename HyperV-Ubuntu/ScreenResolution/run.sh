@@ -20,7 +20,7 @@ NEWLINE="
 file=""
 
 # backup
-sudo cp $GRUP_PATH "${GRUP_PATH}.bak"
+sudo mv $GRUP_PATH "${GRUP_PATH}.bak"
 
 while IFS= read -r line 
 do
@@ -38,6 +38,6 @@ do
     fi
 done < "${GRUP_PATH}"
 
-echo "${file}"
+echo "${file}" > $GRUP_PATH
 
-
+echo "Finish"
