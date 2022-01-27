@@ -21,8 +21,8 @@ file=""
 
 while IFS= read -r line 
 do
-    if [[ $line =~ ^GRUB_CMDLINE_LINUX_DEFAULT=\"([^\"]+)\"$ ]]; then
-        echo "${BASH_REMATCH[1]}"
+    if [[ $line =~ ^GRUB_CMDLINE_LINUX_DEFAULT=\"[^\"]+\"$ ]]; then
+        echo "line"
     else 
         file="${file}${line}" 
     fi
