@@ -21,8 +21,8 @@ file=""
 
 while IFS= read -r line 
 do
-    if [[ "${line}" =~ ^GRUB_CMDLINE_LINUX_DEFAULT=\"([^\"]+)\" ]]; then
-        echo "${line}"
+    if [[ "${line}" =~ ^GRUB_CMDLINE_LINUX_DEFAULT=\"([^\"]*)\" ]]; then
+        echo "${BASH_REMATCH[0]}"
     fi
 done < "${GRUP_PATH}"
 
