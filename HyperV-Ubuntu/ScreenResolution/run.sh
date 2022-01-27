@@ -24,7 +24,7 @@ do
     if $line == "GRUB_CMDLINE_LINUX_DEFAULT=*"; then
         echo "line"
     else 
-        file="${file}{$line}"
+        file="${file}${line}" 
     fi
 done < "${GRUP_PATH}"
 
