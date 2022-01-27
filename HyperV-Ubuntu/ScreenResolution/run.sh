@@ -14,6 +14,8 @@ if !(is_user_root); then
 fi
 
 GRUP_PATH="/etc/default/grub"
+NEWLINE="
+"
 
 sudo cp $GRUP_PATH "${GRUP_PATH}.bak"
 
@@ -24,15 +26,12 @@ do
     if [[ "${line}" =~ ^GRUB_CMDLINE_LINUX_DEFAULT=\"([^\"]*)\" ]]; then
         cmdline="${BASH_REMATCH[1]}"
         if !([[ "${cmdline}" =~ ^.*hyperv_fb:1920×1080.*$ ]]); then
-            file="${file}GRUB_CMDLINE_LINUX_DEFAULT=\"${BASH_REMATCH[1]} hyperv_fb:1920×1080\"
-            "
+            file="${file}GRUB_CMDLINE_LINUX_DEFAULT=\"${BASH_REMATCH[1]} hyperv_fb:1920×1080\"${NEWLINE}"
         else
-            file="${file}${line}
-            "
+            file="${file}${line}${NEWLINE}"
         fi
     else 
-        file="${file}${line}
-        "
+        file="${file}${line}${NEWLINE}"
     fi
 done < "${GRUP_PATH}"
 
