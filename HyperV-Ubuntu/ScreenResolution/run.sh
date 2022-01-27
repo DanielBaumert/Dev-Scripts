@@ -21,14 +21,9 @@ file=""
 
 while IFS= read -r line 
 do
-    if ("${line}" =~ "^GRUB_CMDLINE_LINUX_DEFAULT=\"([^\"]+)\""); then
-        echo "line"
-    else 
-        file="${file}${line}" 
-    fi
+    echo "${line}"
 done < "${GRUP_PATH}"
 
 
-echo "${file}"
 
 
