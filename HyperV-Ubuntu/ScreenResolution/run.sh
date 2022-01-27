@@ -23,7 +23,7 @@ while IFS= read -r line
 do
     if [[ "${line}" =~ ^GRUB_CMDLINE_LINUX_DEFAULT=\"([^\"]*)\" ]]; then
         cmdline="${BASH_REMATCH[1]}"
-        if !([["${cmdline}" =~ ^.*hyperv_fb:1920×1080.*$)]]); then
+        if !([[ "${cmdline}" =~ ^.*hyperv_fb:1920×1080.*$ ]]); then
             file="${file}GRUB_CMDLINE_LINUX_DEFAULT=\"${BASH_REMATCH[1]} hyperv_fb:1920×1080\"\n"
         else
             file="${file}${line}\n"
