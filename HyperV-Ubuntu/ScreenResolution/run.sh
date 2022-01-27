@@ -21,7 +21,9 @@ file=""
 
 while IFS= read -r line 
 do
-    echo "${line}"
+    if "${line}" =~ "^GRUB_CMDLINE_LINUX_DEFAULT=.*" then
+        echo "${line}"
+    fi
 done < "${GRUP_PATH}"
 
 
