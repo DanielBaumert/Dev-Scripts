@@ -23,10 +23,10 @@ file=""
 
 while IFS= read -r line 
 do
-    if [[ "${line}" =~ ^GRUB_CMDLINE_LINUX_DEFAULT=\"([^\"]*)\" ]]; then
+    if [[ ${line} =~ ^GRUB_CMDLINE_LINUX_DEFAULT=\"([^\"]*)\" ]]; then
         param="${BASH_REMATCH[1]}"
-        echo "${param}"
-        if [[ "${param}" != *"video=hyperv_fb:1920×1080"* ]]; then
+        echo $param
+        if [[ $param != *"video=hyperv_fb:1920×1080"* ]]; then
             file="${file}GRUB_CMDLINE_LINUX_DEFAULT=\"${param} video=hyperv_fb:1920×1080\"${NEWLINE}"
         else
             file="${file}${line}${NEWLINE}"
