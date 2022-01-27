@@ -13,7 +13,7 @@ if !(is_user_root); then
     exit 1
 fi
 
-GRUP_PATH="/ect/default/grup"
+GRUP_PATH="/ect/default/grub"
 
 sudo cp $GRUP_PATH "${GRUP_PATH}.bak"
 
@@ -26,7 +26,7 @@ do
     else 
         file="${file}{$line}"
     fi
-done < GRUP_PATH
+done < "${GRUP_PATH}"
 
 
 echo "${file}"
