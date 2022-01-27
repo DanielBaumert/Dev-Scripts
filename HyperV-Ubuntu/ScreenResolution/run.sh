@@ -26,13 +26,12 @@ while IFS= read -r line
 do
     if [[ ${line} =~ ^GRUB_CMDLINE_LINUX_DEFAULT=\"([^\"]*)\" ]]; then
         param="${BASH_REMATCH[1]}"
-        echo $param
-        if [[ $param != *"${RES}"* ]]; then
+        if [[ $param =~ .*"${RES}".* ]]; then
+            echo "${RES} already exists in '${param}'"
+            file="${file}${line}${NEWLINE}"
+        else
             echo "added ${RES} to GRUB_CMDLINE_LINUX_DEFAULT"
             file="${file}GRUB_CMDLINE_LINUX_DEFAULT=\"${param} ${RES}\"${NEWLINE}"
-        else
-            echo "${RES} already exists"
-            file="${file}${line}${NEWLINE}"
         fi
     else 
         file="${file}${line}${NEWLINE}"
